@@ -1,0 +1,29 @@
+local areaTextField = display.newText( "area", display.contentCenterX, display.contentCenterY - 200, native.systemFont, 25)
+areaTextField.id = "area textField"
+areaTextField:setFillColor( 1, 1, 1 )
+
+local calculateButton = display.newImageRect( "Button.png", 406, 157 )
+calculateButton.x = display.contentCenterX
+calculateButton.y = display.contentCenterY
+calculateButton.id = "calculate Button"
+
+local function calculateButtonTouch( event )
+ 
+    local pi
+    local diameter
+    local area
+    local circumference  
+  
+     pi = 3.14
+     diameter = diameterTextField.text
+     radius = diameter /2
+     area = pi * radius ^ 2 
+     circumference = 2 * pi * radius
+    -- print( areaOfSquare )
+    areaTextField.text = "The area is = " .. area
+    circumferenceTextField.text = "circumference is = " .. circumference
+    return true
+end
+
+calculateButton:addEventListener( "touch", calculateButtonTouch )
+    
